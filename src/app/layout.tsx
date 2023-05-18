@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Roboto, Poppins } from "next/font/google";
-import NavBar from "@/components/NavBar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const roboto = Roboto({
@@ -23,9 +23,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${poppins.variable} font-primary`}>
-        <NavBar />
-        {children}
-        <Footer />
+        <div className="min-h-[100vh] w-full max-w-[96rem] grid grid-rows-[auto 1fr auto] bg-blue-gray-500">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
