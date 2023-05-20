@@ -28,4 +28,8 @@
   body {
     @apply text-textDark;
   }
+  .just-cont {
+    justify-content: center;
+    align-items: center;
+  }
 }
