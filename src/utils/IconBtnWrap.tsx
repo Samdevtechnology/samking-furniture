@@ -9,7 +9,9 @@ type props = {
 const IconBtnWrap = ({ children, className, bg, size }: props) => {
   return (
     <button
-      className={`w-${size} h-${size} rounded-full flex just-cont hover:${bg}/10 active:${bg}/30 overflow-hidden ${className}`}
+      className={`w-${size} h-${size} flex just-cont hover:${bg}/10 active:${bg}/30 overflow-hidden ${
+        className ? className : ""
+      }`}
     >
       {children}
     </button>
