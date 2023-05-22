@@ -23,10 +23,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${poppins.variable} font-primary`}>
-        <div className="min-h-[100vh] w-full max-w-[96rem] grid grid-rows-[auto 1fr auto] bg-blue-gray-500">
-          <Header />
-          <main>{children}</main>
-          <Footer />
+        <div className="flex just-cont">
+          <div className="min-h-[100vh] w-[96rem] grid grid-rows-[auto 1fr auto] bg-blue-gray-500">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

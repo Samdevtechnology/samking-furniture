@@ -9,6 +9,7 @@ import {
   ShoppingBagIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
+import TextLinkWrap from "@/utils/TextLinkWrap";
 
 const NavBar = () => {
   return (
@@ -26,10 +27,19 @@ const NavBar = () => {
         <nav className="sm:w-[35%] flex just-cont sm:ml-[5%]">
           <ul className="flex w-full flex-row align-middle justify-end sm:justify-between">
             <li className=" hidden sm:flex sm:just-cont">
-              <IconBtnWrap bg="bg-white" size={12} className="rounded-full">
-                <PhoneIcon className="w-7 h-7 block lg:hidden" />
+              <IconBtnWrap
+                bg="bg-white"
+                size={12}
+                className="rounded-full lg:hidden"
+              >
+                <PhoneIcon className="w-7 h-7 block" />
               </IconBtnWrap>
-              <h4 className="text-xl hidden lg:block">Contact Us</h4>
+              <TextLinkWrap
+                href="/contact"
+                className="text-xl font-secondary hidden  lg:inline-block no-underline hover:text-xl hover:underline underline"
+              >
+                Contact Us
+              </TextLinkWrap>
             </li>
             <li className=" hidden sm:block">
               <IconBtnWrap bg="bg-white" size={12} className="rounded-full">
