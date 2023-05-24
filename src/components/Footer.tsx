@@ -3,7 +3,12 @@ import React from "react";
 import NewsletterInput from "./NewsletterInput";
 import IconBtnWrap from "@/utils/IconBtnWrap";
 import Link from "next/link";
-import { Facebook, Twitter, Pinterest, Instagram } from "@/icons/Socials";
+import {
+  Facebook,
+  Twitter,
+  Pinterest,
+  Instagram,
+} from "@/assets/icons/Socials";
 import {
   MapPinIcon,
   PhoneIcon,
