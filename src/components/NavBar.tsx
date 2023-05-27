@@ -36,7 +36,7 @@ const NavBar = () => {
               </IconBtnWrap>
               <TextLinkWrap
                 href="/contact"
-                className="text-xl font-secondary hidden  lg:inline-block no-underline hover:text-xl hover:underline underline"
+                className="text-xl font-secondary hidden  lg:inline-block no-underline hover:text-xl hover:underline"
               >
                 Contact Us
               </TextLinkWrap>
