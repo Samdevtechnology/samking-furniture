@@ -5,12 +5,12 @@ import Footer from "@/components/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-roboto",
 });
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-poppins",
 });
 
