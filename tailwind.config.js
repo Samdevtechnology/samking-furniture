@@ -17,6 +17,7 @@ module.exports = withMT({
         secondary: "#C4D7ED",
         tertiary: "#375D81",
         container: "#E1E6FA",
+        container2: "#ABC8E2",
         offwhite: "#F5F5F3",
         textDark: "#333",
         danger: colors.red[400],
