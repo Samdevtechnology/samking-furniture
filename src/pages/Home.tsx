@@ -40,9 +40,9 @@ export const Home = () => {
           <header className="pt-8 mb-4 text-center font-secondary font-medium text-xl">
             <h3>INSPIRATIONAL IDEAS</h3>
           </header>
-          <ul className="flex flex-col just-cont gap-y-10">
-            <li className=" flex just-cont bg-white">
-              <div className="image w-2/4">
+          <ul className="flex flex-col just-cont gap-y-10 pb-12">
+            <li className="flex just-cont bg-white flex-col lg:odd:flex-row lg:even:flex-row-reverse">
+              <div className="image w-full">
                 <Image
                   width={100}
                   height={200}
@@ -53,9 +53,11 @@ export const Home = () => {
                   placeholder="blur"
                 />
               </div>
-              <div className="w-2/4 self-start flex justify-center flex-col items-center">
-                <h5 className="my-12 text-2xl">Living Room</h5>
-                <p className=" w-4/5">
+              <div className="w-full self-start flex justify-center flex-col items-center">
+                <h5 className="my-4 xl:my-12 text-xl sm:text-2xl">
+                  Living Room
+                </h5>
+                <p className=" w-11/12 md:w-4/5 mb-6 lg:mb-0">
                   Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
                   consectetur et luctus et, porta ut dolor. Curabitur ultricies
                   ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
@@ -67,21 +69,8 @@ export const Home = () => {
                 </p>
               </div>
             </li>
-            <li className=" flex just-cont bg-white">
-              <div className="w-2/4 self-start flex justify-center flex-col items-center">
-                <h5 className="my-12 text-2xl">Living Room</h5>
-                <p className=" w-4/5">
-                  Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
-                  consectetur et luctus et, porta ut dolor. Curabitur ultricies
-                  ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
-                  consectetur diam. Maecenas vitae egestas dolor. Fusce tempor
-                  magna at tortor aliquet finibus. Sed eu nunc sit amet elit
-                  euismod faucibus. Class aptent taciti sociosqu ad litora
-                  torquent per conubia nostra, per inceptos himenaeos. Duis
-                  gravida eget neque vel vulputate.
-                </p>
-              </div>
-              <div className="image w-2/4">
+            <li className=" flex just-cont bg-white flex-col lg:odd:flex-row lg:even:flex-row-reverse">
+              <div className="image w-full">
                 <Image
                   width={100}
                   height={200}
@@ -91,6 +80,21 @@ export const Home = () => {
                   quality={80}
                   placeholder="blur"
                 />
+              </div>
+              <div className="w-full self-start flex justify-center flex-col items-center">
+                <h5 className="my-4 xl:my-12 text-xl sm:text-2xl">
+                  Living Room
+                </h5>
+                <p className=" w-11/12 md:w-4/5 mb-6 lg:mb-0">
+                  Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
+                  consectetur et luctus et, porta ut dolor. Curabitur ultricies
+                  ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
+                  consectetur diam. Maecenas vitae egestas dolor. Fusce tempor
+                  magna at tortor aliquet finibus. Sed eu nunc sit amet elit
+                  euismod faucibus. Class aptent taciti sociosqu ad litora
+                  torquent per conubia nostra, per inceptos himenaeos. Duis
+                  gravida eget neque vel vulputate.
+                </p>
               </div>
             </li>
           </ul>
