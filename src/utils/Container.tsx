@@ -15,4 +15,7 @@ const Container = ({ children, className, Variant = "div" }: props) => {
   );
 };
 
+export const CarouselCont =
+  "w-[calc(100vw-2rem)] md:w-[calc(100vw-4rem)] lg:w-[calc(100vw-6rem)] max-w-[84rem]";
+
 export default Container;
