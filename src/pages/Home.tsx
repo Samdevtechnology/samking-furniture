@@ -5,8 +5,37 @@ import ProductCarousel, {
 import Container from "@/utils/Container";
 import Inspirational1 from "@/assets/images/Inspiration1.png";
 import Inspirational2 from "@/assets/images/Inspiration2.png";
-import Image from "next/image";
-import React from "react";
+import InspirationList from "@/components/InspirationList";
+
+const inspirationDemoData = [
+  {
+    key: "00",
+    image: Inspirational1,
+    heading: "Living Room",
+    details: ` Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
+  consectetur et luctus et, porta ut dolor. Curabitur ultricies
+  ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
+  consectetur diam. Maecenas vitae egestas dolor. Fusce tempor
+  magna at tortor aliquet finibus. Sed eu nunc sit amet elit
+  euismod faucibus. Class aptent taciti sociosqu ad litora
+  torquent per conubia nostra, per inceptos himenaeos. Duis
+  gravida eget neque vel vulputate.`,
+  },
+  {
+    key: "00",
+    image: Inspirational2,
+    heading: "Living Room",
+    title: "Living Room View",
+    details: ` Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
+  consectetur et luctus et, porta ut dolor. Curabitur ultricies
+  ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
+  consectetur diam. Maecenas vitae egestas dolor. Fusce tempor
+  magna at tortor aliquet finibus. Sed eu nunc sit amet elit
+  euismod faucibus. Class aptent taciti sociosqu ad litora
+  torquent per conubia nostra, per inceptos himenaeos. Duis
+  gravida eget neque vel vulputate.`,
+  },
+];
 
 export const Home = () => {
   return (
@@ -15,7 +44,7 @@ export const Home = () => {
 
       <section className="bg-secondary">
         <Container>
-          <header className="pt-8 mb-4 text-center font-secondary font-medium text-xl">
+          <header className="pt-8 mb-4 sm:mb-8 md:mb-12 text-center font-secondary font-medium text-xl">
             <h3>CLEARANCE DEALS</h3>
           </header>
           <div className="flex just-cont">
@@ -37,67 +66,11 @@ export const Home = () => {
 
       <section className="bg-container">
         <Container>
-          <header className="pt-8 mb-4 text-center font-secondary font-medium text-xl">
+          <header className="pt-8 mb-4 sm:mb-8 md:mb-12 text-center font-secondary font-medium text-xl">
             <h3>INSPIRATIONAL IDEAS</h3>
           </header>
-          <ul className="flex flex-col just-cont gap-y-10 pb-12">
-            <li className="flex just-cont bg-white flex-col lg:odd:flex-row lg:even:flex-row-reverse">
-              <div className="image w-full">
-                <Image
-                  width={100}
-                  height={200}
-                  src={Inspirational1}
-                  alt="Inspirational Image"
-                  className="w-full h-full object-contain"
-                  quality={80}
-                  placeholder="blur"
-                />
-              </div>
-              <div className="w-full self-start flex justify-center flex-col items-center">
-                <h5 className="my-4 xl:my-12 text-xl sm:text-2xl">
-                  Living Room
-                </h5>
-                <p className=" w-11/12 md:w-4/5 mb-6 lg:mb-0">
-                  Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
-                  consectetur et luctus et, porta ut dolor. Curabitur ultricies
-                  ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
-                  consectetur diam. Maecenas vitae egestas dolor. Fusce tempor
-                  magna at tortor aliquet finibus. Sed eu nunc sit amet elit
-                  euismod faucibus. Class aptent taciti sociosqu ad litora
-                  torquent per conubia nostra, per inceptos himenaeos. Duis
-                  gravida eget neque vel vulputate.
-                </p>
-              </div>
-            </li>
-            <li className=" flex just-cont bg-white flex-col lg:odd:flex-row lg:even:flex-row-reverse">
-              <div className="image w-full">
-                <Image
-                  width={100}
-                  height={200}
-                  src={Inspirational2}
-                  alt="Inspirational Image"
-                  className="w-full h-full object-contain"
-                  quality={80}
-                  placeholder="blur"
-                />
-              </div>
-              <div className="w-full self-start flex justify-center flex-col items-center">
-                <h5 className="my-4 xl:my-12 text-xl sm:text-2xl">
-                  Living Room
-                </h5>
-                <p className=" w-11/12 md:w-4/5 mb-6 lg:mb-0">
-                  Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl,
-                  consectetur et luctus et, porta ut dolor. Curabitur ultricies
-                  ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel
-                  consectetur diam. Maecenas vitae egestas dolor. Fusce tempor
-                  magna at tortor aliquet finibus. Sed eu nunc sit amet elit
-                  euismod faucibus. Class aptent taciti sociosqu ad litora
-                  torquent per conubia nostra, per inceptos himenaeos. Duis
-                  gravida eget neque vel vulputate.
-                </p>
-              </div>
-            </li>
-          </ul>
+
+          <InspirationList lists={inspirationDemoData} />
         </Container>
       </section>
     </div>
