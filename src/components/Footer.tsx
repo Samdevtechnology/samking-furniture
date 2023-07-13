@@ -171,7 +171,7 @@ const Footer = () => {
               <Link href="/">cookies & Privacy Policy</Link>
             </li>
             <li className="self-center mt-4 md:mt-0 text-white/50">
-              <Link href="//twitter.com/samdevtech" target="_blank">
+              <Link href="https://twitter.com/samdevtech" target="_blank">
                 &copy; 2023 SamdevTech. All rights reserved
               </Link>
             </li>
