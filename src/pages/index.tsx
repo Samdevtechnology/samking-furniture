@@ -37,7 +37,7 @@ const inspirationDemoData = [
   },
 ];
 
-export const Home = () => {
+const index = () => {
   return (
     <div>
       <ImageCarousel />
@@ -76,3 +76,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default index;
