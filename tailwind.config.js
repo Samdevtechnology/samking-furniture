@@ -14,6 +14,9 @@ module.exports = withMT({
     extend: {
       colors: {
         primary: "#183152",
+        primaryShade40: "#2e5d9c",
+        primaryShade20: "#18315233",
+        primaryBtn: "#152b49",
         secondary: "#C4D7ED",
         tertiary: "#375D81",
         container: "#E1E6FA",
