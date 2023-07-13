@@ -19,7 +19,13 @@ const NavBar = () => {
         className="flex py-3 flex-row justify-between align-middle w-full max-w-[70rem]"
       >
         <Link href="/" title="Go Home" className="logo sm:w-[25%]">
-          <Image src="/logo.svg" width={48} height={40} alt="Logo" />
+          <Image
+            src="/logo.svg"
+            width={48}
+            height={40}
+            alt="Logo"
+            className="w-[48px] h-[40px]"
+          />
         </Link>
 
         <SearchBar className="w-[60%]" />
