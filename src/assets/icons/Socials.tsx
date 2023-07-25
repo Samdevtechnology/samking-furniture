@@ -1,5 +1,6 @@
 type props = {
   className?: string;
+  color?: string;
 };
 
 export const Facebook = ({ className }: props) => {
@@ -24,7 +25,7 @@ export const Facebook = ({ className }: props) => {
   );
 };
 
-export const FacebookSolid = ({ className }: props) => {
+export const FacebookSolid = ({ className, color = "#3B5998" }: props) => {
   return (
     <svg
       className={className ? className : ""}
@@ -37,7 +38,7 @@ export const FacebookSolid = ({ className }: props) => {
       <path
         id="facebook"
         d="M12.3081 5.59985H15.057V0.812132C14.5827 0.746891 12.9517 0.600098 11.0522 0.600098C7.08874 0.600098 4.37369 3.09307 4.37369 7.67503V11.8919H0V17.2442H4.37369V30.7115H9.73604V17.2455H13.9328L14.599 11.8931H9.73478V8.20575C9.73604 6.65877 10.1526 5.59985 12.3081 5.59985Z"
-        fill="#3B5998"
+        fill={color}
       />
     </svg>
   );
@@ -199,6 +200,25 @@ export const TwitterSolid = ({ className }: props) => {
           fill="#55ACEE"
         />
       </g>
+    </svg>
+  );
+};
+
+export const Google = ({ className }: props) => {
+  return (
+    <svg
+      className={className ? className : ""}
+      width="31"
+      height="33"
+      viewBox="0 0 31 33"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        id="google-brands"
+        d="M31 16.9685C31 25.9572 24.8445 32.3541 15.7541 32.3541C7.03853 32.3541 0 25.3156 0 16.6C0 7.88447 7.03853 0.845947 15.7541 0.845947C19.9975 0.845947 23.5676 2.4023 26.3182 4.96869L22.0303 9.09144C16.4211 3.67914 5.99037 7.74472 5.99037 16.6C5.99037 22.0949 10.3799 26.548 15.7541 26.548C21.9922 26.548 24.3299 22.0759 24.6984 19.7572H15.7541V14.3386H30.7523C30.8984 15.1453 31 15.9203 31 16.9685Z"
+        fill="white"
+      />
     </svg>
   );
 };
