@@ -1,6 +1,6 @@
 import Container from "@/utils/Container";
 import React from "react";
-import NewsletterInput from "./NewsletterInput";
+import NewsletterInput from "../../components/NewsletterInput";
 import IconBtnWrap from "@/utils/IconBtnWrap";
 import Link from "next/link";
 import {

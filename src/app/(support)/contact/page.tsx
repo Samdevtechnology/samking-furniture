@@ -3,6 +3,7 @@ import Location from "@/assets/icons/Location";
 import ImageTitle from "@/components/ImageTitle";
 import Container from "@/utils/Container";
 import { Button, Input, Textarea } from "@/utils/MuiServerComponent";
+import CUSTOM_BTN_CONFIG from "@/utils/BUTTON_CONFIG";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import {
   FacebookSolid,
@@ -10,11 +11,11 @@ import {
   PinterestSolid,
   TwitterSolid,
 } from "@/assets/icons/Socials";
-import GoogleMapReact from "google-map-react";
+import Map from "./components/Map";
+import IconBtnWrap from "@/utils/IconBtnWrap";
+import Link from "next/link";
 
-const Lagos = { lat: 6.465422, lng: 3.406448 };
-
-const Contact = () => {
+const Page = () => {
   return (
     <div>
       <ImageTitle title="Contact Us" />
@@ -30,30 +31,47 @@ const Contact = () => {
                 <form action="">
                   <div className="lg:flex gap-x-8">
                     <fieldset className="w-full mb-4 lg:mb-8">
-                      <Input variant="standard" label="First Name" />
+                      <Input
+                        className="text-white"
+                        variant="standard"
+                        label="First Name"
+                      />
                     </fieldset>
                     <fieldset className="w-full mb-4 lg:mb-8">
-                      <Input variant="standard" label="Last Name" />
+                      <Input
+                        className="text-white"
+                        variant="standard"
+                        label="Last Name"
+                      />
                     </fieldset>
                   </div>
                   <div className="lg:flex gap-x-8">
                     <fieldset className="w-full mb-4 lg:mb-8">
-                      <Input variant="standard" label="Mobile Number" />
+                      <Input
+                        className="text-white"
+                        variant="standard"
+                        label="Mobile Number"
+                      />
                     </fieldset>
                     <fieldset className="w-full mb-4 lg:mb-8">
-                      <Input variant="standard" label="Email Address" />
+                      <Input
+                        className="text-white"
+                        variant="standard"
+                        label="Email Address"
+                      />
                     </fieldset>
                   </div>
                   <div>
                     <fieldset className="mb-4">
                       <Textarea
+                        className="text-white"
                         variant="standard"
                         label="Write your message here..."
                       />
                     </fieldset>
                   </div>
                   <div className="btn py-4 lg:w-fit lg:pb-8">
-                    <Button className="bg-primary shadow-primaryShade20 hover:shadow-primaryShade40 hover:bg-primaryBtn w-full">
+                    <Button className={`w-full ${CUSTOM_BTN_CONFIG()}`}>
                       Send
                     </Button>
                   </div>
@@ -79,36 +97,47 @@ const Contact = () => {
                     <span>
                       <Phone className=" w-5 h-5" />
                     </span>
-                    <p className=" text-sm">+(234) 905 632 7145</p>
+                    <p className="text-sm">+(234) 905 632 7145</p>
                   </li>
                   <li className="flex gap-x-2 justify-start items-start">
                     <span>
                       <EnvelopeIcon className=" w-5 h-5" />
                     </span>
-                    <p className=" text-sm">Samkingwebdev@gmail.com</p>
+                    <p className="text-sm">Samkingwebdev@gmail.com</p>
                   </li>
                 </ul>
 
                 <ul className="flex justify-between items-center w-full mb-8">
                   <li>
-                    <span>
-                      <InstagramSolid />
-                    </span>
+                    <IconBtnWrap bg="bg-white" size={12} className="rounded-sm">
+                      <Link href="/" title="Our Instagram Handle">
+                        <InstagramSolid />
+                      </Link>
+                    </IconBtnWrap>
                   </li>
+
                   <li>
-                    <span>
-                      <TwitterSolid />
-                    </span>
+                    <IconBtnWrap bg="bg-white" size={12} className="rounded-sm">
+                      <Link href="/" title="Our Twitter Handle">
+                        <TwitterSolid />
+                      </Link>
+                    </IconBtnWrap>
                   </li>
+
                   <li>
-                    <span>
-                      <PinterestSolid />
-                    </span>
+                    <IconBtnWrap bg="bg-white" size={12} className="rounded-sm">
+                      <Link href="/" title="Our Pinterest Handle">
+                        <PinterestSolid />
+                      </Link>
+                    </IconBtnWrap>
                   </li>
+
                   <li>
-                    <span>
-                      <FacebookSolid />
-                    </span>
+                    <IconBtnWrap bg="bg-white" size={12} className="rounded-sm">
+                      <Link href="/" title="Our Facebook Handle">
+                        <FacebookSolid />
+                      </Link>
+                    </IconBtnWrap>
                   </li>
                 </ul>
               </div>
@@ -125,13 +154,7 @@ const Contact = () => {
             </header>
             <div className="flex flex-col-reverse lg:flex-row-reverse">
               <main className="w-full lg:w-3/4 h-60 md:h-72 bg-white lg:h-96">
-                <GoogleMapReact
-                  //   bootstrapURLKeys={{ key: "" }}
-                  defaultCenter={Lagos}
-                  defaultZoom={11}
-                >
-                  <div>My Marker</div>
-                </GoogleMapReact>
+                <Map />
               </main>
               <aside className="w-full bg-container2 flex items-center flex-col px-4 pb-4 lg:w-1/4 mb-8 md:mb-12 lg:mb-0">
                 <header className="flex just-cont pt-8 mb-8 text-center font-secondary font-medium text-xl">
@@ -177,4 +200,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Page;

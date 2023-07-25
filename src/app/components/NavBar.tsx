@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Container from "../utils/Container";
-import SearchBar from "./SearchBar";
+import Container from "../../utils/Container";
+import SearchBar from "../../components/SearchBar";
 import IconBtnWrap from "@/utils/IconBtnWrap";
 import {
   PhoneIcon,
@@ -34,6 +34,7 @@ const NavBar = () => {
           <ul className="flex w-full flex-row align-middle justify-end sm:justify-between">
             <li className=" hidden sm:flex sm:just-cont">
               <IconBtnWrap
+                href="/contact"
                 bg="bg-white"
                 size={12}
                 className="rounded-full lg:hidden"
@@ -48,7 +49,12 @@ const NavBar = () => {
               </TextLinkWrap>
             </li>
             <li className=" hidden sm:block">
-              <IconBtnWrap bg="bg-white" size={12} className="rounded-full">
+              <IconBtnWrap
+                href="/login"
+                bg="bg-white"
+                size={12}
+                className="rounded-full"
+              >
                 <UserIcon className="w-7 h-7" />
               </IconBtnWrap>
             </li>

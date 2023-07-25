@@ -22,7 +22,7 @@ const inspirationDemoData = [
   gravida eget neque vel vulputate.`,
   },
   {
-    key: "00",
+    key: "11",
     image: Inspirational2,
     heading: "Living Room",
     title: "Living Room View",
@@ -37,7 +37,7 @@ const inspirationDemoData = [
   },
 ];
 
-const index = () => {
+const Page = () => {
   return (
     <div>
       <ImageCarousel />
@@ -77,4 +77,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Page;

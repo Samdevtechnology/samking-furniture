@@ -1,7 +1,8 @@
 import "../styles/global.scss";
 import { Roboto, Poppins } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Provider from "./context/Provider";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,15 +22,18 @@ export const metadata = {
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div
-      className={`${roboto.variable} ${poppins.variable} font-primary flex just-cont`}
-    >
-      <div className="min-h-[100vh] w-[96rem] grid grid-rows-[auto 1fr auto] bg-blue-gray-500">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
-    </div>
+    <Provider>
+      <html
+        lang="en"
+        className={`${roboto.variable} ${poppins.variable} font-primary flex just-cont`}
+      >
+        <body className="min-h-[100vh] w-[96rem] grid grid-rows-[auto 1fr auto] bg-offWhite">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </Provider>
   );
 };
 
