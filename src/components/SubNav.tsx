@@ -1,12 +1,24 @@
-import Link from "next/link";
 import Container from "../utils/Container";
 import TextLinkWrap from "@/utils/TextLinkWrap";
+import clsx from "clsx";
+
+type props = {
+  variant?: "primary" | "secondary";
+  relative?: boolean;
+};
 
 const linkStyle = "no-underline hover:underline hover:decoration-2";
 
-const SubNav = () => {
+const SubNav = ({ variant = "primary", relative }: props) => {
   return (
-    <nav className="bg-[#F9F6EE]/70 absolute z-10 hidden w-full top-0 sm:flex just-cont">
+    <nav
+      className={clsx("z-10 hidden w-full top-0 sm:flex just-cont", {
+        "bg-[#F9F6EE]/70": variant === "primary",
+        "bg-container": variant === "secondary",
+        absolute: relative === false,
+        relative: relative === true,
+      })}
+    >
       <Container
         Variant="ul"
         className="flex py-2 flex-row justify-between w-full"
