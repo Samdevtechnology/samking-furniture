@@ -10,7 +10,7 @@ import { HeartIcon as SolidHeart } from "@heroicons/react/24/solid";
 const ProductCard = () => {
   return (
     <div className="bg-white mb-8 max-w-[350px] min-w-[250] w-full">
-      <div className="bg-offwhite relative">
+      <div className="bg-offWhite relative">
         <Link href="/">
           <Image
             width={100}
