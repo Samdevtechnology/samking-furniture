@@ -6,7 +6,28 @@ import {
   Button,
   Checkbox,
   Spinner,
-  Alert
+  Alert,
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  IconButton,
+  List,
+  ListItem,
+  ListItemPrefix,
 } from "@material-tailwind/react";
 
-export { Input, Textarea, Button, Checkbox, Spinner, Alert };
+export {
+  Input,
+  Textarea,
+  Button,
+  Checkbox,
+  Spinner,
+  Alert,
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  IconButton,
+  List,
+  ListItem,
+  ListItemPrefix,
+};
