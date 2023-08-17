@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import { Button } from "@/utils/MuiServerComponent";
 
 type props = {
   children: ReactNode;
@@ -8,6 +9,7 @@ type props = {
   size: number;
   onClick?: React.MouseEventHandler;
   href?: string;
+  as?: "span" | "div";
 };
 
 const IconBtnWrap = ({
@@ -17,6 +19,7 @@ const IconBtnWrap = ({
   size,
   onClick,
   href,
+  as,
 }: props) => {
   if (href) {
     return (
@@ -30,15 +33,17 @@ const IconBtnWrap = ({
       </Link>
     );
   }
+  const Component = as || "button";
   return (
-    <button
+    <Component
+      type="button"
       onClick={onClick}
       className={`w-${size} h-${size} flex just-cont hover:${bg}/10 active:${bg}/30 overflow-hidden ${
         className ? className : ""
       }`}
     >
       {children}
-    </button>
+    </Component>
   );
 };
 
