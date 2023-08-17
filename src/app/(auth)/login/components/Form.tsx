@@ -11,17 +11,12 @@ import * as Yup from "yup";
 import { signIn } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import useAuthContext from "@/app/(auth)/context/AuthContext";
 
 type formModel = {
   email: string;
   password: string;
   remember: boolean;
-};
-
-const INITIAL_FORM_STATE: formModel = {
-  email: "",
-  password: "",
-  remember: false,
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -35,6 +30,18 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 
 const LoginForm = () => {
+  const { email, updateAuthContext } = useAuthContext();
+
+  const forgotHandler = (email: string) => {
+    updateAuthContext({ email });
+  };
+
+  const INITIAL_FORM_STATE: formModel = {
+    email: email || "",
+    password: "",
+    remember: false,
+  };
+
   const router = useRouter();
   const alertRef = useRef<HTMLDivElement>(null);
   const [errorMsg, setErrorMsg] = useState("");
@@ -57,7 +64,10 @@ const LoginForm = () => {
     if (res?.error) {
       return setErrorMsg(res.error);
     }
-    router.push("/account");
+    if (res?.url?.includes("/login") || res?.url?.includes("/register"))
+      res.url = "";
+    const url = res?.url || "/customer/account";
+    router.push(url);
   };
 
   return (
@@ -80,7 +90,7 @@ const LoginForm = () => {
         validationSchema={FORM_VALIDATION}
         onSubmit={submitHandler}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values }) => (
           <Form className="flex flex-col gap-y-4">
             <TextInput name="email" type="email" label="Email" />
             <TextInput name="password" type="password" label="Password" />
@@ -94,8 +104,10 @@ const LoginForm = () => {
                 />
               </legend>
               <div>
-                <TextLinkWrap scale={false} href="/">
-                  Forgot password?
+                <TextLinkWrap scale={false} href="/reset-password">
+                  <span onClick={() => forgotHandler(values.email)}>
+                    Forgot password?
+                  </span>
                 </TextLinkWrap>
               </div>
             </div>
