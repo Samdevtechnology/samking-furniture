@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 
 const Page = async () => {
   const data = await getServerSession(authOptions);
-  if (data) redirect("/account");
+  if (data) redirect("/customer/account");
 
   return (
     <>
