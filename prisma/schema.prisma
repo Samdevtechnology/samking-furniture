@@ -38,7 +38,7 @@ model User {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   firstName     String
   lastName      String
-  role          Role   @default(USER)
+  role          Role     @default(USER)
   password      String
   promotions    Boolean  @default(false)
   email         String   @unique
@@ -51,4 +51,13 @@ model User {
 enum Role {
   USER
   ADMIN
+}
+model ActivateOtp {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  otp          String      @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  userEmail    String 
+  userName     String
+  verified     Boolean  @default(false)
 }
