@@ -5,11 +5,11 @@ import SearchBar from "../../components/SearchBar";
 import IconBtnWrap from "@/utils/IconBtnWrap";
 import {
   PhoneIcon,
-  UserIcon,
   ShoppingBagIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
 import TextLinkWrap from "@/utils/TextLinkWrap";
+import UserAvatar from "./UserAvatar";
 
 const NavBar = () => {
   return (
@@ -31,7 +31,7 @@ const NavBar = () => {
         <SearchBar className="w-[60%]" />
 
         <nav className="sm:w-[35%] flex just-cont sm:ml-[5%]">
-          <ul className="flex w-full flex-row align-middle justify-end sm:justify-between">
+          <ul className="flex w-full flex-row items-center justify-end sm:justify-between">
             <li className=" hidden sm:flex sm:just-cont">
               <IconBtnWrap
                 href="/contact"
@@ -49,14 +49,7 @@ const NavBar = () => {
               </TextLinkWrap>
             </li>
             <li className=" hidden sm:block">
-              <IconBtnWrap
-                href="/login"
-                bg="bg-white"
-                size={12}
-                className="rounded-full"
-              >
-                <UserIcon className="w-7 h-7" />
-              </IconBtnWrap>
+              <UserAvatar />
             </li>
             <li className=" hidden sm:block">
               <IconBtnWrap bg="bg-white" size={12} className="rounded-full">
