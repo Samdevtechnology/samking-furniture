@@ -2,12 +2,12 @@ import { Input } from "@/utils/MuiServerComponent";
 import { useField, FieldHookConfig } from "formik";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
-
 interface CustomProps {
   variant?: "static" | "standard" | "outlined";
   helperText?: string;
   label?: string;
   fullWidth?: boolean;
+  size?: "md" | "lg";
 }
 
 const TextInputWrapper = (props: CustomProps & FieldHookConfig<string>) => {
@@ -15,14 +15,17 @@ const TextInputWrapper = (props: CustomProps & FieldHookConfig<string>) => {
   const {
     name,
     variant = "outlined",
+    size = "md",
     type,
     className,
     helperText,
     label,
     fullWidth,
   } = props;
+
   const configTextInput = {
     ...field,
+    size,
     type,
     variant,
     className: clsx(`${className}`, {
