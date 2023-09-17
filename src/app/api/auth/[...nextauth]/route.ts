@@ -1,5 +1,7 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
 import type { Adapter } from "next-auth/adapters";
@@ -10,6 +12,14 @@ const prisma = new PrismaClient();
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID ?? "",
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET ?? "",
+    }),
     CredentialsProvider({
       id: "credentials",
       name: "Credentials",
@@ -37,7 +47,7 @@ export const authOptions: NextAuthOptions = {
 
         // check if password match
 
-        const passwordsMatch = await compare(password, user.password);
+        const passwordsMatch = await compare(password, user.password!);
 
         if (!passwordsMatch)
           throw new Error(
@@ -56,6 +66,66 @@ export const authOptions: NextAuthOptions = {
     signIn: "/login",
   },
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider === "google" || account?.provider === "facebook") {
+        try {
+          const { email } = user;
+
+          if (!email) return false;
+
+          const exist = await prisma.user.findUnique({
+            where: {
+              email,
+            },
+          });
+
+          if (!exist) {
+            const { name, image } = user;
+            const nameParts = name!.split(" ");
+            const firstName = nameParts[0];
+            const lastName = nameParts.slice(1).join(" ") ?? "";
+            const newUser = await prisma.user.create({
+              data: {
+                firstName,
+                lastName,
+                email,
+                image,
+                provider: account.provider,
+              },
+            });
+
+            await prisma.account.create({
+              data: {
+                userId: newUser.id,
+                ...account,
+              },
+            });
+            return true;
+          }
+
+          const acct = await prisma.account.findFirst({
+            where: {
+              userId: exist.id,
+            },
+          });
+
+          if (!acct) {
+            await prisma.account.create({
+              data: {
+                userId: exist.id,
+                ...account,
+              },
+            });
+          }
+
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+      return true;
+    },
+
     //REF : https://authjs.dev/guides/basics/role-based-access-control#persisting-the-role
     async jwt({ token, user }) {
       if (user) {
