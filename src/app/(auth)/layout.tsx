@@ -1,6 +1,8 @@
+import RedirectLoggedInUser from "./components/RedirectLoggedUser";
 import AuthContextProvider from "./context/AuthContextProvider";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+  await RedirectLoggedInUser();
   return <AuthContextProvider>{children}</AuthContextProvider>;
 };
 
