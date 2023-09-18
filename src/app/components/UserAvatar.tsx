@@ -73,7 +73,7 @@ const UserAvatar = () => {
         className="p-2 flex max-w-[13rem]"
       >
         <List className="w-full min-w-[12rem]">
-          <Link href="/account">
+          <Link href="/customer/account">
             <ListItem>
               <ListItemPrefix>
                 <OutlineUserIcon
@@ -84,7 +84,7 @@ const UserAvatar = () => {
               Account
             </ListItem>
           </Link>
-          <Link href="/account">
+          <Link href="/customer/account">
             <ListItem>
               <ListItemPrefix>
                 <OutlineUserIcon
@@ -95,7 +95,7 @@ const UserAvatar = () => {
               Account
             </ListItem>
           </Link>
-          <Link href="/account">
+          <Link href="/customer/account">
             <ListItem>
               <ListItemPrefix>
                 <OutlineUserIcon
@@ -106,7 +106,7 @@ const UserAvatar = () => {
               Account
             </ListItem>
           </Link>
-          <Link href="/account">
+          <Link href="/customer/account">
             <ListItem>
               <ListItemPrefix>
                 <OutlineUserIcon
