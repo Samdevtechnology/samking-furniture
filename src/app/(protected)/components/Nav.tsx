@@ -33,7 +33,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-primary text-white font-medium text-lg font-secondary cursor-pointer rounded-md">
+    <nav className="bg-primary text-white text-lg font-secondary cursor-pointer rounded-md">
       <ul>
         <li>
           <Link
