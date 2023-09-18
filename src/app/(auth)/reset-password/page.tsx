@@ -2,14 +2,9 @@ import SubNav from "@/components/SubNav";
 import Container from "@/utils/Container";
 import ResetForm from "./components/Form";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 import TextLinkWrap from "@/utils/TextLinkWrap";
 
 const Page = async () => {
-  const data = await getServerSession(authOptions);
-  if (data) redirect("/customer/account");
   return (
     <>
       <SubNav relative variant="secondary" />

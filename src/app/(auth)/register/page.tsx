@@ -6,14 +6,8 @@ import CUSTOM_BTN_CONFIG from "@/utils/BUTTON_CONFIG";
 import { Button } from "@/utils/MuiServerComponent";
 import TextLinkWrap from "@/utils/TextLinkWrap";
 import Form from "./components/Form";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 
-const Page = async () => {
-  const data = await getServerSession(authOptions);
-  if (data) redirect("/customer/account");
-
+const Page = () => {
   return (
     <>
       <SubNav relative variant="secondary" />
