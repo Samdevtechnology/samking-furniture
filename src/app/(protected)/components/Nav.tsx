@@ -10,15 +10,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { usePathname, useRouter } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const linkStyles = "p-4 pl-8 items-center flex hover:bg-secondary/30";
 const activeLink = "bg-secondary hover:bg-secondary";
 const Nav = () => {
+  const { data: session } = useSession();
   const pathname = usePathname();
   const router = useRouter();
   const path = pathname.substring(10);
   const [currentPage, setCurrentPage] = useState(path);
+  const role = session?.user.role.toLowerCase();
+  const user = role === "user" ? "customer" : role;
 
   useEffect(() => {
     const path = pathname.substring(10);
@@ -37,7 +40,7 @@ const Nav = () => {
       <ul>
         <li>
           <Link
-            href="/customer/account"
+            href={`/${user}/account`}
             className={`${twMerge(
               linkStyles,
               currentPage === "account" ? activeLink : ""
@@ -51,7 +54,7 @@ const Nav = () => {
         </li>
         <li>
           <Link
-            href="/customer/order"
+            href={`/${user}/order`}
             className={`${twMerge(
               linkStyles,
               currentPage === "order" ? activeLink : ""
@@ -65,7 +68,7 @@ const Nav = () => {
         </li>
         <li>
           <Link
-            href="/customer/review"
+            href={`/${user}/review`}
             className={`${twMerge(
               linkStyles,
               currentPage === "review" ? activeLink : ""
@@ -79,7 +82,7 @@ const Nav = () => {
         </li>
         <li>
           <Link
-            href="/customer/detail"
+            href={`/${user}/detail`}
             className={`${twMerge(
               linkStyles,
               currentPage === "detail" ? activeLink : ""
@@ -93,7 +96,7 @@ const Nav = () => {
         </li>
         <li>
           <Link
-            href="/customer/address"
+            href={`/${user}/address`}
             className={`${twMerge(
               linkStyles,
               currentPage === "address" ? activeLink : ""
@@ -107,7 +110,7 @@ const Nav = () => {
         </li>
         <li>
           <Link
-            href="/customer/password"
+            href={`/${user}/password`}
             className={`${twMerge(
               linkStyles,
               currentPage === "password" ? activeLink : ""
@@ -121,7 +124,7 @@ const Nav = () => {
         </li>
         <li>
           <Link
-            href="/customer/newsletter"
+            href={`/${user}/newsletter`}
             className={`${twMerge(
               linkStyles,
               currentPage === "newsletter" ? activeLink : ""
