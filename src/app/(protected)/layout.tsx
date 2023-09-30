@@ -1,6 +1,6 @@
 import ImageTitle from "@/components/ImageTitle";
 import Container from "@/utils/Container";
-import Nav from "./components/Nav";
+import SideNav from "./components/SideNav";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -9,7 +9,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <Container className="my-24">
         <div className="flex gap-x-8">
           <aside className="w-3/12">
-            <Nav />
+            <SideNav />
           </aside>
           <main className=" w-9/12">{children}</main>
         </div>

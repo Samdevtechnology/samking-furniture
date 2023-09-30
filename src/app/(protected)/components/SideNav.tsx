@@ -14,7 +14,7 @@ import { signOut, useSession } from "next-auth/react";
 
 const linkStyles = "p-4 pl-8 items-center flex hover:bg-secondary/30";
 const activeLink = "bg-secondary hover:bg-secondary";
-const Nav = () => {
+const SideNav = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
   const router = useRouter();
@@ -144,4 +144,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default SideNav;
