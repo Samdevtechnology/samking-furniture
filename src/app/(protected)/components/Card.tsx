@@ -12,7 +12,8 @@ interface HeaderProps {
 
 interface FooterProps {
   children: string;
-  href: string;
+  href?: string;
+  sub?: React.ReactNode;
 }
 
 interface ContentProps {
@@ -48,12 +49,18 @@ export const Content = ({ title, children }: ContentProps) => {
   );
 };
 
-export const Footer = ({ children, href }: FooterProps) => {
+export const Footer = ({ children, href, sub }: FooterProps) => {
   return (
-    <div className="Card-tail px-4 py-2 border-t border-[#707070]/20">
-      <Link href={href}>
-        <h4 className="font-semibold text-lg text-primary">{children}</h4>
-      </Link>
+    <div className="Card-tail px-4 py-2 border-t border-[#707070]/20 flex items-center justify-between">
+      {href && (
+        <Link href={href}>
+          <h4 className="font-semibold text-lg text-primary">{children}</h4>
+        </Link>
+      )}
+      {!href && (
+        <h4 className="font-semibold text-lg text-primary/50">{children}</h4>
+      )}
+      {sub && <div>{sub}</div>}
     </div>
   );
 };
