@@ -1,7 +1,11 @@
-import React from "react";
+import MainLayout from "../../components/Main";
 
 const page = () => {
-  return <div>Review Page</div>;
+  return (
+    <MainLayout title="Pending Reviews">
+      <span>Pending Reviews</span>
+    </MainLayout>
+  );
 };
 
 export default page;
