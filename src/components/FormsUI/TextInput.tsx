@@ -10,7 +10,7 @@ interface CustomProps {
   size?: "md" | "lg";
 }
 
-const TextInputWrapper = (props: CustomProps & FieldHookConfig<string>) => {
+const TextInput = (props: CustomProps & FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
   const {
     name,
@@ -57,4 +57,4 @@ const TextInputWrapper = (props: CustomProps & FieldHookConfig<string>) => {
   );
 };
 
-export default TextInputWrapper;
+export default TextInput;
