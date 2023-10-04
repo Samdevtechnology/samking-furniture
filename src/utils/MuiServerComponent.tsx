@@ -3,6 +3,8 @@
 import {
   Input,
   Textarea,
+  Select,
+  Option,
   Button,
   Checkbox,
   Spinner,
@@ -19,6 +21,8 @@ import {
 export {
   Input,
   Textarea,
+  Select,
+  Option,
   Button,
   Checkbox,
   Spinner,

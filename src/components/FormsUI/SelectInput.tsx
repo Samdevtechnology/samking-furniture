@@ -1,26 +1,33 @@
-import { Select, Option } from "@/utils/MuiServerComponent";
+import { Select, Option as MuiOption } from "@/utils/MuiServerComponent";
 import { useField, FieldHookConfig } from "formik";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
-interface CustomProps {
+import React from "react";
+interface SelectProps {
   variant?: "static" | "standard" | "outlined";
   helperText?: string;
   label?: string;
   fullWidth?: boolean;
   size?: "md" | "lg";
+  children: React.ReactNode;
+}
+interface OptionProps {
+  children: string;
+  value?: string;
 }
 
-const SelectInput = (props: CustomProps & FieldHookConfig<string>) => {
-  const [field, meta] = useField(props);
+export const SelectInput = (props: SelectProps & FieldHookConfig<string>) => {
+  const [field, meta, helpers] = useField(props);
   const {
     name,
     variant = "outlined",
     size = "md",
-    type,
+    type = "select",
     className,
     helperText,
     label,
     fullWidth,
+    children,
   } = props;
 
   const configSelectInput = {
@@ -40,10 +47,13 @@ const SelectInput = (props: CustomProps & FieldHookConfig<string>) => {
 
   return (
     <div className={fullWidth ? " w-full" : ""}>
-      <Select label={label ? label : name} {...configSelectInput}>
-        <Option value="love">love</Option>
-        <Option value="love1">love1</Option>
-        <Option value="love2">love2</Option>
+      <Select
+        label={label ? label : name}
+        {...configSelectInput}
+        onChange={(val) => helpers.setValue(val || "")}
+        onClick={(e) => e.preventDefault()}
+      >
+        {children}
       </Select>
       {Boolean(helperText) && !meta.error && (
         <small className="flex items-center">
@@ -61,4 +71,9 @@ const SelectInput = (props: CustomProps & FieldHookConfig<string>) => {
   );
 };
 
+export const Option = ({ children, value }: OptionProps) => {
+  return (
+    <MuiOption value={value ?? children.toLowerCase()}>{children}</MuiOption>
+  );
+};
 export default SelectInput;

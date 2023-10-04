@@ -10,7 +10,7 @@ import { signIn } from "next-auth/react";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import CardContainer from "@/app/(protected)/components/CardContainer";
-import SelectInput from "@/components/FormsUI/SelectInput";
+import SelectInput, { Option } from "@/components/FormsUI/SelectInput";
 
 type formModel = {
   firstName: string;
@@ -105,7 +105,11 @@ const DetailsForm = () => {
                 <TextInput name="lastName" label="Last Name" />
                 <TextInput name="email" type="email" label="Email" />
                 <TextInput name="phone" label="Contact number" />
-                <SelectInput name="gender" label="Gender" />
+                <SelectInput name="gender" label="Gender">
+                  <Option>Male</Option>
+                  <Option>Female</Option>
+                  <Option>Other</Option>
+                </SelectInput>
                 <TextInput name="phone" label="Date of Birth" />
               </CardContainer>
               <div className="px-6">
