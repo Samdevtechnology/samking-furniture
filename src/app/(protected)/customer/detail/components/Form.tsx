@@ -108,7 +108,6 @@ const DetailsForm = () => {
                 <SelectInput name="gender" label="Gender">
                   <Option>Male</Option>
                   <Option>Female</Option>
-                  <Option>Other</Option>
                 </SelectInput>
                 <TextInput name="phone" label="Date of Birth" />
               </CardContainer>

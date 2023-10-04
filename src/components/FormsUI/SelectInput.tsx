@@ -45,6 +45,22 @@ export const SelectInput = (props: SelectProps & FieldHookConfig<string>) => {
     configSelectInput.error = true;
   }
 
+  const Options = React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      const value = child.props.value;
+      const children = child.props.children;
+      return (
+        <MuiOption
+          key={value ?? children.toLowerCase()}
+          value={value ?? children.toLowerCase()}
+        >
+          {children}
+        </MuiOption>
+      );
+    }
+    return null;
+  });
+
   return (
     <div className={fullWidth ? " w-full" : ""}>
       <Select
@@ -53,7 +69,7 @@ export const SelectInput = (props: SelectProps & FieldHookConfig<string>) => {
         onChange={(val) => helpers.setValue(val || "")}
         onClick={(e) => e.preventDefault()}
       >
-        {children}
+        {Options}
       </Select>
       {Boolean(helperText) && !meta.error && (
         <small className="flex items-center">
