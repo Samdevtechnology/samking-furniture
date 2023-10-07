@@ -11,6 +11,7 @@ import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import CardContainer from "@/app/(protected)/components/CardContainer";
 import SelectInput, { Option } from "@/components/FormsUI/SelectInput";
+import DatePicker from "@/components/FormsUI/DatePicker";
 
 type formModel = {
   firstName: string;
@@ -109,7 +110,7 @@ const DetailsForm = () => {
                   <Option>Male</Option>
                   <Option>Female</Option>
                 </SelectInput>
-                <TextInput name="phone" label="Date of Birth" />
+                <DatePicker name="dob" label="Date of Birth" />
               </CardContainer>
               <div className="px-6">
                 <Button
