@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import CardContainer from "@/app/(protected)/components/CardContainer";
 import SelectInput, { Option } from "@/components/FormsUI/SelectInput";
 import DatePicker from "@/components/FormsUI/DatePicker";
+import PhoneInput from "@/components/FormsUI/PhoneInput";
 
 type formModel = {
   firstName: string;
@@ -26,7 +27,9 @@ const FORM_VALIDATION = Yup.object().shape({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
   email: Yup.string().email("Email is not valid").required("Email is required"),
-  phone: Yup.string(),
+  phone: Yup.string()
+    .matches(/^[0-9]{11}$/, "Phone number must be exactly 11 digits")
+    .required("Phone number is required"),
   gender: Yup.string().oneOf(["male", "female"]).required("Gender is required"),
   dob: Yup.date()
     .max(new Date(), "Date of birth cannot be in the future")
@@ -105,7 +108,7 @@ const DetailsForm = () => {
                 <TextInput name="firstName" label="First Name" />
                 <TextInput name="lastName" label="Last Name" />
                 <TextInput name="email" type="email" label="Email" />
-                <TextInput name="phone" label="Contact number" />
+                <PhoneInput name="phone" label="Contact number" />
                 <SelectInput name="gender" label="Gender">
                   <Option>Male</Option>
                   <Option>Female</Option>
