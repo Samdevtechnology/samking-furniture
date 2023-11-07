@@ -16,6 +16,11 @@ import {
   List,
   ListItem,
   ListItemPrefix,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+  Radio,
+  Card,
 } from "@material-tailwind/react";
 
 export {
@@ -34,4 +39,9 @@ export {
   List,
   ListItem,
   ListItemPrefix,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+  Radio,
+  Card,
 };
