@@ -29,7 +29,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       >
         <body className="min-h-[100vh] w-[96rem] grid grid-rows-[auto 1fr auto] bg-offWhite">
           <Header />
-          <main>{children}</main>
+          <main className="overflow-hidden">{children}</main>
           <Footer />
         </body>
       </html>

@@ -20,8 +20,8 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white flex just-cont">
       <Container Variant="div" className="w-full p-8">
-        <div className="flex flex-col md:flex-row w-full">
-          <main className="w-full flex flex-col sm:w-[70%] mt-4">
+        <div className="flex flex-col lg:flex-row w-full">
+          <main className="w-full flex flex-col lg:w-[70%] mt-4">
             <div>
               <ul className="flex flex-col gap-y-3 md:flex-row gap-x-3">
                 <li className="order-last md:order-first md:mr-10 w-full">
@@ -114,7 +114,7 @@ const Footer = () => {
               </ul>
             </div>
           </main>
-          <aside className="w-full order-first md:order-last md:w-[30%]">
+          <aside className="w-full order-first lg:order-last md:w-[50%] lg:w-[30%]">
             <div className="flex flex-col w-full h-full justify-center">
               <div className="flex flex-col">
                 <label
