@@ -5,7 +5,7 @@ type props = {
   Variant?: ElementType;
 };
 
-const Container = ({ children, className, Variant = "div" }: props) => {
+const Container = ({ children, className = "", Variant = "div" }: props) => {
   return (
     <Variant
       className={`px-4 md:px-8 lg:px-12 max-w-[90rem] mx-auto ${className}`}
