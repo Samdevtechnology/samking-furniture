@@ -21,6 +21,7 @@ import {
   AccordionBody,
   Radio,
   Card,
+  Carousel,
 } from "@material-tailwind/react";
 
 export {
@@ -44,4 +45,5 @@ export {
   AccordionBody,
   Radio,
   Card,
+  Carousel,
 };

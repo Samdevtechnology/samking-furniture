@@ -1,6 +1,5 @@
 "use client";
-
-import { Carousel, IconButton } from "@material-tailwind/react";
+import { Carousel } from "@/utils/MuiServerComponent";
 import SubNav from "./SubNav";
 import Image from "next/image";
 import bg1 from "@/assets/images/bg1.jpg";
