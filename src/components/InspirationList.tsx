@@ -1,7 +1,7 @@
 "use client";
 
-import { useGetInspirationsQuery } from "@/app/(redux)/(slices)/inspiration";
-import Inspiration from "@/app/(redux)/types/Inspiration";
+import { useGetInspirationsQuery } from "@/lib/features/inspirations/inspirationsSlice";
+import Inspiration from "@/lib/types/Inspiration";
 import Image from "next/image";
 
 const InspirationList = () => {

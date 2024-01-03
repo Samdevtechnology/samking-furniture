@@ -1,8 +1,8 @@
 import { createEntityAdapter, createSelector } from "@reduxjs/toolkit";
 import type { EntityId, Dictionary } from "@reduxjs/toolkit";
-import apiSlice from "../apiSlice";
-import Inspiration from "../types/Inspiration";
-import { RootState } from "../store";
+import apiSlice from "../../apiSlice";
+import Inspiration from "../../types/Inspiration";
+import { RootState } from "../../store";
 
 const inspirationsAdapter = createEntityAdapter<Inspiration>();
 

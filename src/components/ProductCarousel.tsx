@@ -1,8 +1,8 @@
 "use client";
 import ProductCard from "./ProductCard";
 import ProductCarouselSkeleton from "./Skeletons/ProductCarousel";
-import { useGetProductsQuery } from "@/app/(redux)/(slices)/productsSlice";
-import Product from "@/app/(redux)/types/Product";
+import { useGetProductsQuery } from "@/lib/features/products/productsSlice";
+import Product from "@/lib/types/Product";
 import Carousel from "./Carousel";
 
 type CarouselProp = {

@@ -4,7 +4,7 @@ import Hot from "@/assets/icons/Hot";
 import NewIcon from "@/assets/icons/NewIcon";
 import { ShoppingBagIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as SolidHeart } from "@heroicons/react/24/solid";
-import Product from "@/app/(redux)/types/Product";
+import Product from "@/lib/types/Product";
 
 type ProductProps = {
   product: Product;
