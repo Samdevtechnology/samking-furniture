@@ -3,11 +3,8 @@ import Image from "next/image";
 import Container from "../../utils/Container";
 import SearchBar from "../../components/SearchBar";
 import IconBtnWrap from "@/utils/IconBtnWrap";
-import {
-  PhoneIcon,
-  ShoppingBagIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/outline";
+import CartIcon from "../cart/components/cartIcon";
+import { PhoneIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import TextLinkWrap from "@/utils/TextLinkWrap";
 import UserAvatar from "./UserAvatar";
 
@@ -52,9 +49,7 @@ const NavBar = () => {
               <UserAvatar />
             </li>
             <li className=" hidden sm:block">
-              <IconBtnWrap bg="bg-white" size={12} className="rounded-full">
-                <ShoppingBagIcon className="w-7 h-7" />
-              </IconBtnWrap>
+              <CartIcon />
             </li>
             <li className=" sm:hidden">
               <IconBtnWrap bg="bg-white" size={12}>

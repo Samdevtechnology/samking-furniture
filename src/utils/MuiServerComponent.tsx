@@ -22,6 +22,7 @@ import {
   Radio,
   Card,
   Carousel,
+  Badge,
 } from "@material-tailwind/react";
 
 export {
@@ -46,4 +47,5 @@ export {
   Radio,
   Card,
   Carousel,
+  Badge,
 };
