@@ -23,7 +23,11 @@ const CartIcon = () => {
       className="rounded-full overflow-visible"
       href="/cart"
     >
-      <Badge content={cart.cartTotalQuantity} color="orange">
+      <Badge
+        content={cart.cartTotalQuantity}
+        invisible={Boolean(!cart.cartTotalQuantity)}
+        color="orange"
+      >
         <ShoppingBagIcon className="w-7 h-7" />
       </Badge>
     </IconBtnWrap>
