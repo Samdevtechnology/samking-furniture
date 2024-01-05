@@ -28,6 +28,9 @@
   body {
     @apply text-textDark;
   }
+  li {
+    list-style: none;
+  }
   .just-cont {
     justify-content: center;
     align-items: center;
