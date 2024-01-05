@@ -13,13 +13,16 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  cartItems: localStorage.getItem("cartItems")
-    ? JSON.parse(localStorage.getItem("cartItems") || "[]")
-    : [],
+  cartItems: [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
   loggedIn: false,
 };
+
+if (typeof window !== "undefined") {
+  const storedCartItems = localStorage.getItem("cartItems");
+  initialState.cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+}
 
 const cartSlice = createSlice({
   name: "cart",
