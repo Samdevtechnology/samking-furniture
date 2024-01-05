@@ -5,6 +5,7 @@ import NewIcon from "@/assets/icons/NewIcon";
 import { ShoppingBagIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as SolidHeart } from "@heroicons/react/24/solid";
 import Product from "@/lib/types/Product";
+import AddToCartIcon from "./AddToCartIcon";
 
 type ProductProps = {
   product: Product;
@@ -109,11 +110,7 @@ export const ProductCard = ({ product, variant = "primary" }: ProductProps) => {
             variant === "primary" ? "items-end" : "items-start"
           }`}
         >
-          <div className={`cart bg-primary rounded-full flex`}>
-            <Link href="/">
-              <ShoppingBagIcon className="w-7 h-7 m-2 text-white" />
-            </Link>
-          </div>
+          <AddToCartIcon item={product} />
         </div>
       </div>
     </div>
