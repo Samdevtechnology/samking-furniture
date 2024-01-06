@@ -8,17 +8,17 @@ generator client {
 }
 
 model Account {
-  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String  @db.ObjectId
+  id                 String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String    @db.ObjectId
   type               String
   provider           String
   providerAccountId  String
-  refresh_token      String? @db.String
-  access_token       String? @db.String
+  refresh_token      String?   @db.String
+  access_token       String?   @db.String
   expires_at         Int?
   token_type         String?
   scope              String?
-  id_token           String? @db.String
+  id_token           String?   @db.String
   session_state      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -27,24 +27,25 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken String   @unique
-  userId       String   @db.ObjectId
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String     @unique
+  userId       String     @db.ObjectId
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  id                 String       @id @default(auto()) @map("_id") @db.ObjectId
   firstName          String
   lastName           String
-  role               Role     @default(USER)
+  role               Role         @default(USER)
   password           String?
-  promotions         Boolean  @default(false)
-  email              String   @unique
+  promotions         Boolean      @default(false)
+  email              String       @unique
   emailVerified      DateTime?
   image              String?
   provider           String?
+  review           Review[]
   accounts           Account[]
   sessions           Session[]
 }
@@ -54,11 +55,74 @@ enum Role {
   ADMIN
 }
 model ActivateOtp {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  otp          String      @unique
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  otp          String       @unique
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
   userEmail    String 
   userName     String
-  verified     Boolean  @default(false)
+  verified     Boolean      @default(false)
+}
+
+// Category Model
+model Category {
+  id          String            @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String?
+  parentId    String?           @db.ObjectId
+  product     Product[]
+  childCategories Category[]    @relation("ParentCategory")
+  parentCategory Category?      @relation("ParentCategory", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+// Product Model.
+model Product {
+  name         String
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  description  String?
+  price        Float
+  category     Category      @relation(fields: [categoryId], references: [id])
+  categoryId   String        @db.ObjectId
+  colors       String[]  
+  sizes        String[]  
+  images       String[]   
+  stock        Stock[]    
+  reviews      Review[]   
+  isNew        Boolean       @default(false)
+  isFavorite   Boolean       @default(false)
+  isHot        Boolean       @default(false)
+  hasDiscount  Boolean       @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+// Stock Model.
+model Stock {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  color       String
+  size        String
+  quantity    Int
+  productId   String      @db.ObjectId
+  product     Product     @relation(fields: [productId], references: [id])
+}
+
+// Review Model.
+model Review {
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  rating     Int
+  text       String
+  createdAt  DateTime     @default(now())
+  productId  String       @db.ObjectId
+  userId     String       @db.ObjectId
+  product    Product      @relation(fields: [productId], references: [id])
+  user       User         @relation(fields: [userId], references: [id])
+}
+
+
+
+model Cart {
+    id         String       @id @default(auto()) @map("_id") @db.ObjectId
+   cartItems Product[]
+  cartTotalQuantity Int
+  cartTotalAmount Int
 }
