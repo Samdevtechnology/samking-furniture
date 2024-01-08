@@ -35,3 +35,41 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json("Cart Successfully Updated");
 }
+
+export async function PUT(req: NextRequest) {
+  const body = await req.json();
+  const { product } = body;
+
+  const itemExist = await prisma.product.findUnique({
+    where: {
+      id: product._id,
+    },
+  });
+
+  //? Decrease from the item quantity and remove if zero.
+  //  decreaseCart(state, action: PayloadAction<CartProduct>) {
+  //   const itemToDecrease = state.cartItems.find(
+  //     (item) => item.id === action.payload.id
+  //   );
+
+  //   if (
+  //     itemToDecrease &&
+  //     itemToDecrease.quantity &&
+  //     itemToDecrease.quantity > 1
+  //   ) {
+  //     itemToDecrease.quantity--;
+  //     //   toast.info("Decreased product quantity", {
+  //     //     position: "bottom-left",
+  //     //   });
+  //   } else if (itemToDecrease && itemToDecrease.quantity === 1) {
+  //     state.cartItems = state.cartItems.filter(
+  //       (item) => item.id !== action.payload.id
+  //     );
+  //     //   toast.error("Product removed from cart", {
+  //     //     position: "bottom-left",
+  //     //   });
+  //   }
+
+  // },
+  return NextResponse.json(product);
+}
