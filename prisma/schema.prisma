@@ -82,8 +82,8 @@ model Product {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   description String?
   price       Float
-  category    Category @relation(fields: [categoryId], references: [id])
-  categoryId  String   @db.ObjectId
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  String?   @db.ObjectId
   colors      String[]
   sizes       String[]
   images      String[]
@@ -97,6 +97,7 @@ model Product {
   updatedAt   DateTime @updatedAt
   Cart        Cart?    @relation(fields: [cartId], references: [id])
   cartId      String?  @db.ObjectId
+  quantity    Int?
 }
 
 // Stock Model.
