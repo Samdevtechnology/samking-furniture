@@ -73,3 +73,15 @@ export async function PUT(req: NextRequest) {
   // },
   return NextResponse.json(product);
 }
+
+export async function DELETE(req: NextRequest) {
+  const body = await req.json();
+  const { product } = body;
+
+  //? Loop through the cart and remove the product
+  // state.cartItems = state.cartItems.filter(
+  //   (item) => item.id !== action.payload.id
+  // );
+
+  return NextResponse.json(product);
+}
