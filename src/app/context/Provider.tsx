@@ -1,10 +1,12 @@
 "use client";
 
+import "react-toastify/dist/ReactToastify.css";
 import { useRef } from "react";
 import { SessionProvider, SessionProviderProps } from "next-auth/react";
 import { Provider as ReduxProvider } from "react-redux";
 import makeStore, { AppStore } from "@/lib/store";
 import { getTotals } from "@/lib/features/cart/cartSlice";
+import { ToastContainer } from "react-toastify";
 // import Auth from "../components/Auth";
 
 interface props extends SessionProviderProps {
@@ -20,7 +22,10 @@ const Provider = ({ children, session }: props) => {
   }
   return (
     <ReduxProvider store={storeRef.current}>
-      <SessionProvider session={session}>{children}</SessionProvider>
+      <SessionProvider session={session}>
+        <ToastContainer />
+        {children}
+      </SessionProvider>
     </ReduxProvider>
   );
 };

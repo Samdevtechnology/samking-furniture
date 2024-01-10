@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Product from "@/lib/types/Product";
+import { toast } from "react-toastify";
 
 interface CartProduct extends Product {
   quantity?: number;
@@ -36,15 +37,15 @@ const cartSlice = createSlice({
       if (existingItem) {
         // existingItem.quantity++;
         existingItem.quantity = (existingItem.quantity ?? 0) + 1;
-        // toast.info("Increased product quantity", {
-        //   position: "bottom-left",
-        // });
+        toast.info("Increased product quantity", {
+          position: "bottom-left",
+        });
       } else {
         const tempProductItem = { ...action.payload, quantity: 1 };
         state.cartItems.push(tempProductItem);
-        // toast.success("Product added to cart", {
-        //   position: "bottom-left",
-        // });
+        toast.success("Product added to cart", {
+          position: "bottom-left",
+        });
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -61,16 +62,16 @@ const cartSlice = createSlice({
         itemToDecrease.quantity > 1
       ) {
         itemToDecrease.quantity--;
-        //   toast.info("Decreased product quantity", {
-        //     position: "bottom-left",
-        //   });
+        toast.info("Decreased product quantity", {
+          position: "bottom-left",
+        });
       } else if (itemToDecrease && itemToDecrease.quantity === 1) {
         state.cartItems = state.cartItems.filter(
           (item) => item.id !== action.payload.id
         );
-        //   toast.error("Product removed from cart", {
-        //     position: "bottom-left",
-        //   });
+        toast.error("Product removed from cart", {
+          position: "bottom-left",
+        });
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -80,9 +81,9 @@ const cartSlice = createSlice({
         (item) => item.id !== action.payload.id
       );
 
-      // toast.error("Product removed from cart", {
-      //   position: "bottom-left",
-      // });
+      toast.error("Product removed from cart", {
+        position: "bottom-left",
+      });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     getTotals(state) {
