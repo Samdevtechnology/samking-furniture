@@ -25,6 +25,12 @@ const ProductGrid = () => {
           <ProductCard product={SampleProduct} />
           <ProductCard product={SampleProduct} />
         </div>
+        <div>
+          <div className="flex">
+            <span>1 - 20 0f 900 products</span>
+            <span>1 2 3 </span>
+          </div>
+        </div>
       </Container>
     </div>
   );
